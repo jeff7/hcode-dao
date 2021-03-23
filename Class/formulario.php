@@ -60,6 +60,13 @@ class formulario
             $this->setEmail($row['email']);
         }
     }
+
+    public static function getList()
+    {
+        $sql = new sql();
+
+        return $sql->select("select * from formulario");
+    }
 }
 
 
