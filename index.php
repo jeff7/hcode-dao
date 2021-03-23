@@ -2,8 +2,8 @@
 
 require_once "config.php";
 
-$sql = new sql();
+$root = new formulario();
 
-$formulario = $sql->select("SELECT * FROM formulario");
+$root->loadById(1);
 
-echo json_encode($formulario);
+echo $root;

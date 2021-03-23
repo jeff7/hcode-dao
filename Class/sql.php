@@ -8,18 +8,18 @@ class sql extends PDO
     {
         $this->conn = new PDO("mysql:host=localhost;dbname=paytour", "root", "root");
     }
-
-    private function setParam($statment, $key, $value)
-    {
-            $statment->bindParam($key, $value);
-    }
     
     private function setParams($statment, $parameters = array())
     {
         foreach ($parameters as $key => $value)
         {
-            $statment->setParam($key, $value);
+            $this->setParam($statment, $key, $value);
         }
+    }
+
+    private function setParam($statment, $key, $value)
+    {
+            $statment->bindParam($key, $value);
     }
 
     public function busca($rawquery, $params = array())
